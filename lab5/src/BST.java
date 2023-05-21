@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class BST<K extends Comparable<K>, V> {
     private Node root;
     private int size;
@@ -89,6 +92,16 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     public Iterable<K> iterator() {
+        List<K> keys = new ArrayList<>();
+        inOrderTraversal(root, keys);
+        return keys;
+    }
 
+    private void inOrderTraversal(Node node, List<K> keys) {
+        if (node != null) {
+            inOrderTraversal(node.left, keys);
+            keys.add(node.key);
+            inOrderTraversal(node.right, keys);
+        }
     }
 }
