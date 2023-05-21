@@ -104,4 +104,7 @@ public class BST<K extends Comparable<K>, V> {
             inOrderTraversal(node.right, keys);
         }
     }
+    public int size() {
+        return size;
+    }
 }
