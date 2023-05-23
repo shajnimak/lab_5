@@ -107,4 +107,24 @@ public class BST<K extends Comparable<K>, V> {
     public int size() {
         return size;
     }
+    public int hight(){
+        return getHight(root);
+    }
+    public int getHight(Node node){
+        if(node == null){
+            return 0;
+        }
+        else{
+            int lefter = getHight(node.left);
+            int righter = getHight(node.right);
+            if(lefter > righter){
+                return lefter+1;
+            }
+            else{
+                return righter+1;
+            }
+        }
+
+    }
+
 }
